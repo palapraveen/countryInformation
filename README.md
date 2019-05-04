@@ -2,11 +2,12 @@
 
 prerequisites:
 
-Node and npm
+Node and npm,git
+
 
 Steps:
 
-1) Unzip the countryInformation 
+1) clone the repo from https://github.com/palapraveen/countryInformation.git and Unzip the countryInformation 
 
 2) cd countryInformation
 
