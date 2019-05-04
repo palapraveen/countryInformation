@@ -1,0 +1,78 @@
+/deep/ body .dropdown-menu{
+    width: 95%;
+    height: 150px;
+    overflow-y: auto;
+    background: #fff;
+}
+
+/deep/ body .dropdown-item{
+   display: block;
+   background-color : transparent;
+   border: none;
+   padding-top: 6px;
+}
+
+/deep/ body #ngb-live{
+   display: none;
+}
+
+.alert{
+   top: 0px;
+   position: absolute;
+   width: 97%;
+   z-index: 9999;
+}
+
+.search-label{
+   display:block;
+}
+
+.countryName{
+      padding-left: 12%;
+}
+.countryDetailsBlockLabel{
+    display:block !important;
+    font-size: 17px;
+    font-weight: 700;
+}
+.countryDetailsDisplay ul li{
+    list-style: none;
+    padding:5px;
+}
+.countryDetailsDisplay ul {
+    height:150px;
+    overflow-y:auto;
+}
+.flag-details{
+    margin-left:-11%;
+}
+.neighbourCountries,.languagesSpoken{
+    width: 90%;
+    margin-left: -36px;
+}
+.loaderDiv {
+    height: 600px;
+    position: relative;
+    background-color: #eee;
+    margin-top: -187px;
+    width: 100%;
+}
+.loader-image {
+  position: absolute;
+  left: 40%;
+  top: 50%;
+}
+.languages-ui{
+    padding-left: 35px;
+}
+.borders-ul{
+    padding-left: 46px;
+    width: 240px;
+}
+.list-group-item{
+    width: 160px;
+}
+.borders-ul .list-group-item{
+    width: 184px;
+}
+

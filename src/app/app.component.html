@@ -1,0 +1,63 @@
+<div class=" col-md-12">
+  <h1 class="display-3 col-md-12 text-center">Country Information</h1>
+  <div class="container row">
+    <div class="col-md-6 mt-4 offset-md-4">
+      <label for="countryCode" class="text-center ml4 search-label">Search for a country:</label>
+      <input id="countryCode" type="text" placeholder="Please enter country code" aria-placeholder="Please enter country code"
+        (input)="onSearch($event)" (selectItem)="selectCountry($event)" class="form-control" [(ngModel)]="searchText" [ngbTypeahead]="search"
+        [resultTemplate]="rt" [inputFormatter]="formatter" />
+    </div>
+  </div>
+
+  <div class="container row countryDetailsDisplay" *ngIf="countrySelected">
+      <div class="col-md-12">
+          <div class="col-md-6 col-md-5 offset-md-3 float-left countryName mt-5">
+            <label class="countryDetailsBlockLabel ">Country Name:</label> {{countrySelectedData.name}}
+          </div>
+
+          <div class="col-md-3 float-left flag-details mt-5">
+            <label class="countryDetailsBlockLabel ">Flag:</label>
+            <img src="{{countrySelectedData.flag}}" alt="{{countrySelectedData.name}}" width="100px" height="70px">
+          </div>
+
+          <div class="col-md-6 col-md-5 offset-md-3 float-left countryName mt-5">
+              <label class="countryDetailsBlockLabel ">Languages Spoken:</label>
+              <div class="languagesSpoken">
+                <ul class="list-group languages-ui" *ngIf="countrySelectedData.languages.length>0">
+                  <li class="list-group-item" *ngFor="let value of countrySelectedData.languages">{{value.name}}</li>
+                </ul>
+                <span class="ml-5" *ngIf="countrySelectedData.languages.length===0">NA</span>
+              </div>
+          </div>
+
+          <div class="col-md-3 float-left flag-details mt-5">
+              <label class="countryDetailsBlockLabel ">Neighbouring Countries:</label>
+              <div class="neighbourCountries">
+                <ul class="list-group borders-ul" *ngIf="countrySelectedData.borders.length>0">
+                  <li class="list-group-item" *ngFor="let value of countrySelectedData.borders">{{value}}</li>
+                </ul>
+                <span class="ml-5" *ngIf="countrySelectedData.borders.length===0">NA</span>
+              </div>
+          </div>
+      </div>
+  </div>
+
+ <div *ngIf="successAlert" class="alert alert-success alert-dismissible text-center" data-auto-dismiss role="alert">
+    <button class="close successAlert" aria-label="close" data-dismiss="alert" (click)="alertClose('success')">&times;</button>
+    <span id="alertMsg">{{alertMessage}}</span>
+  </div>
+
+  <div *ngIf="warningAlert" class="alert alert-warning alert-dismissible text-center" data-auto-dismiss role="alert">
+    <button class="close warningAlert" aria-label="close" data-dismiss="alert" (click)="alertClose('warning')">&times;</button>
+    <span id="alertMsg">{{alertMessage}}</span>
+  </div>
+  
+<div class="loaderDiv" *ngIf="loaderInfo">
+    <img src="assets/loader.gif" class="loader-image">
+  </div>
+
+</div>
+
+<ng-template #rt let-r="result" let-t="term">
+  <ngb-highlight [result]="r.alpha3Code" [term]="t"></ngb-highlight>
+</ng-template>
